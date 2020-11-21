@@ -22,8 +22,6 @@ Route::middleware(['auth:sanctum', 'verified', 'DashboardNav'])->get('/dashboard
 })->name('dashboard');
 
 
-
-
 Route::group(['middleware' => ['auth:sanctum', 'verified', 'DashboardNav']], function () {
 
     Route::resources([
