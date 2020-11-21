@@ -1,0 +1,16 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './dark-mode';
+
+/* always hidden */
+[x-cloak=""] {
+    display: none;
+}
+
+/* hidden on mobile/smaller screens */
+@media screen and (max-width: 768px) {
+    [x-cloak="desktop"] {
+        display: none;
+    }
+}
