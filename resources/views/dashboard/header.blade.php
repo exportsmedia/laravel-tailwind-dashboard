@@ -26,7 +26,7 @@
     <ul class="flex items-center flex-shrink-0 space-x-6">
         <!-- Theme toggler -->
         <li class="flex">
-            <button class="rounded-md focus:outline-none focus:shadow-outline-purple" @click="toggleTheme"
+            <button class="rounded-md focus:outline-none focus:shadow-outline-purple" {{'@'}}click="toggleTheme"
                 aria-label="Toggle color mode">
                 <template x-if="!dark">
                     <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -45,7 +45,7 @@
         <!-- Notifications menu -->
         <li class="relative">
             <button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
-                @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu" aria-label="Notifications"
+                {{'@'}}click="toggleNotificationsMenu" {{'@'}}keydown.escape="closeNotificationsMenu" aria-label="Notifications"
                 aria-haspopup="true">
                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                     <path
@@ -57,8 +57,8 @@
             </button>
             <template x-if="isNotificationsMenuOpen">
                 <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0" @click.away="closeNotificationsMenu"
-                    @keydown.escape="closeNotificationsMenu"
+                    x-transition:leave-end="opacity-0" {{'@'}}click.away="closeNotificationsMenu"
+                    {{'@'}}keydown.escape="closeNotificationsMenu"
                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
                     <li class="flex">
                         <a class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
