@@ -1,15 +1,19 @@
-function themeSetup() {
+themeSetup = function () {
   function getThemeFromLocalStorage() {
     // if user already changed the theme, use it
     if (window.localStorage.getItem('dark')) {
+      console.log("has storage")
       return JSON.parse(window.localStorage.getItem('dark'))
     }
 
+    console.log("no storage")
+
     // else return their preferences
-    return (
-      !!window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    )
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      console.log("prefers dark")
+      return true;
+    }
+
   }
 
   function setThemeToLocalStorage(value) {
@@ -17,10 +21,10 @@ function themeSetup() {
   }
 
   return {
-    dark: getThemeFromLocalStorage(),
+    darkMode: getThemeFromLocalStorage(),
     toggleTheme() {
-      this.dark = !this.dark
-      setThemeToLocalStorage(this.dark)
+      this.darkMode = !this.darkMode
+      setThemeToLocalStorage(this.darkMode)
     },
     isSideMenuOpen: false,
     toggleSideMenu() {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" :class="{ 'theme-dark': dark }" x-data="themeSetup()">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +16,13 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/init-alpine.js') }}"></script>
+        {{-- <script src="{{ asset('js/init-alpine.js') }}"></script> --}}
+
     </head>
 
-    <body>
-        <div class="flex h-screen bg-gray-50 dark:bg-gray-900" x-data="{ isOpen: false }" {{'@'}}keydown.escape="isOpen = false">
+    <body :class="{ 'theme-dark': darkMode }" x-data="themeSetup()">
+        <div class="flex h-screen bg-gray-50 dark:bg-gray-900" @keydown.escape="isOpen = false">
             
             @include('dashboard.sidebar', $nav)
 
